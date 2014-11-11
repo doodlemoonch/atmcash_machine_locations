@@ -45,7 +45,7 @@ def tidy_data(atm):
     atm["link_id"] = atm["id"]
     atm["lat"] = atm["point"]["lat"]
     atm["lon"] = atm["point"]["lon"]
-    atm["loc"] = atm["point"]["lat"], atm["point"]["lon"]
+    atm["loc"] = atm["point"]["lat"] + ',' + atm["point"]["lon"]
     atm["postcode"] = atm["pc"]
 
     del atm["id"]
@@ -63,7 +63,7 @@ outcode = scraperwiki.sqlite.get_var('outcode', False)
 
 
 
-    for atm in get_atms(outcode):
-        scraperwiki.sqlite.save(["atm_id"], tidy_data(atm))
+for atm in get_atms(outcode):
+    scraperwiki.sqlite.save(["atm_id"], tidy_data(atm))
 
 scraperwiki.sqlite.save_var('outcode', False)
