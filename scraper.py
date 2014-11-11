@@ -45,6 +45,7 @@ def tidy_data(atm):
     atm["link_id"] = atm["id"]
     atm["lat"] = atm["point"]["lat"]
     atm["lon"] = atm["point"]["lon"]
+    atm["loc"] = atm["point"]["lat"], atm["point"]["lon"]
     atm["postcode"] = atm["pc"]
 
     del atm["id"]
