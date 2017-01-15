@@ -62,7 +62,7 @@ outcode = scraperwiki.sqlite.get_var('outcode', False)
 
 
 
-    for atm in get_atms(outcode):
-        scraperwiki.sqlite.save(["atm_id"], tidy_data(atm))
+for atm in get_atms(outcode):
+    scraperwiki.sqlite.save(["atm_id"], tidy_data(atm))
 
 scraperwiki.sqlite.save_var('outcode', False)
